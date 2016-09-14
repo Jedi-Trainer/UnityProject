@@ -1,0 +1,16 @@
+Reverse-engineering the Laser script (because "it just works" is not enough):
+
++ It stores a reference to the Laser in "rigidbody" (which is the RigidBody of the Blast coming from the Droid).
++ Stores the Laser velocity in a Vector3 called "oldVelocity", which is used in the reflection.
++ Gets the velocity of the rigid body, and stores it in "oldVelocity".
++ When the Blast makes contact with the Blade, a Collision occurs.
++ The script then gets the contact point of the collsion between the Blast and Blade. 
++ The contact point contains the normal Vector, which is then passed to the Reflect() function. 
+  The Reflect() function uses the "old velocity" of the Rigid Body, and the normal Vector associated with the contact point,
+  in order to get the Vector representing the reflection of the Rigid Body. It then stores it in "reflectedVelocity".
++ Once the reflection Vector has been calculated, the Rigid Body's velocity is assigned that Vector. 
++ The object is then rotated using a Quaternion measured from the old velocity to the calculated reflected velocity.
+
+In a nutshell, the script stores a reference to the Rigid Body associated with each Blast from the Droid. It then uses that, along with the 
+contact point of the collision between the Rigid Body and the Blade, in order to compute the normal Vector. Storing the current velocity Vector of the Rigi Body,
+it computes the reflection Vector, and computes the Quaternion that is the amount that the object should be rotated. It then rotates the object. 
