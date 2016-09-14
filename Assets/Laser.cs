@@ -28,6 +28,10 @@ public class Laser : MonoBehaviour
     // we want to store the laser's velocity every frame
     // so we can use this data during collisions to reflect
     private Vector3 oldVelocity;
+    
+    //See here for the difference between Update() and FixedUpdate(): https://unity3d.com/learn/tutorials/topics/scripting/update-and-fixedupdate
+    //In essence, this is called every Physics step and used for adjusting the Physics of RigidBody objects.
+    //It is also called when you want to make Physics calculations.
     void FixedUpdate()
     {
         // because we want the velocity after physics, we put this in fixed update
