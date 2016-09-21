@@ -1,0 +1,22 @@
+
+(Same scene, different cameras.) (Unity)
+
+(?) (Unreal)
+
+Possible Unit Tests:
+
+1). Targeting system tests.
+	+ Shoot at a stationary object while the droid is stationary (tests reflection of fired shots).
+	+ Shoot at a stationary object while the droid is moving (tests accuracy).
+	+ Shoot at a moving object while the droid is moving (reinforced test of accuracy).
+2). Lightsaber tests (without Vive controller).
+	+ When the lightsaber is on, it should produce a "humming" sound.
+	+ When the lightsaber is swung, it should produce a "swoosh" sound.
+	+ When the lightsabe is turned off, it should play the correct random sound at the right time (no delays).
+3). Droid tests.
+	+ Motion tests (from very basic manuveaurs (yes, it's spelle wrong) to complex).
+	+ Rate of fire tests (rapid burst fire?).
+	+ Timing of shots tests (a shot should be fired every ____ second(s)/minute(s)...).
+	+ Droid features (splitting into two...).
+4). Feature tests. (These may or may not need the headset).
+	+ Health tests (if you get shot, you lose health.
