@@ -33,6 +33,8 @@ public class DroidBlaster : MonoBehaviour {
     {
         if (Blade.activeSelf)
         {
+            target = GameObject.Find("Camera (eye)");
+
             transform.LookAt(target.transform.position); //change transform to look at player
                                                          //Instantiate(prefab, vector(should represent current position), vector(pointed at player))
             GameObject blast = (GameObject)Instantiate(blastPrefab,
@@ -42,13 +44,13 @@ public class DroidBlaster : MonoBehaviour {
 
             // Based on a stack overflow question
             // http://answers.unity3d.com/comments/946790/view.html
-            //Quaternion q = blast.transform.rotation;
-            //q.eulerAngles = new Vector3(0f, transform.rotation.eulerAngles.y, 0f);
-            //blast.transform.rotation = q;
+            Quaternion q = blast.transform.rotation;
+            q.eulerAngles = new Vector3(0f, transform.rotation.eulerAngles.y, 0f);
+            blast.transform.rotation = q;
 
 
-            blast.GetComponent<Rigidbody>().AddForce(target.transform.position - blast.transform.position);
-
+            //blast.GetComponent<Rigidbody>().AddForce(target.transform.position - blast.transform.position);
+            blast.GetComponent<Rigidbody>().AddForce(transform.forward * force);
         }
     }
 }
